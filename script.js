@@ -1,6 +1,5 @@
 
 $(function() {
-    const body = $("body");
     const envelope = $("#envelope");
     const popup = $("#popup");
     const effectText = $(".effect-text");
@@ -24,13 +23,12 @@ $(function() {
     heartAnimation(effectText);
 });
 
-const scalar = 2;
-const heart = confetti.shapeFromText({ text: "❤", scalar });
 const config = {
     ticks: 250,
-    shapes: [heart],
+    shapes: ["heart"],
+    colors: ["FE5C5C", "FF69B4", "FC1D1D", "C91536"],
     startVelocity: 50,
-    scalar,
+    scalar: 3
 };
 
 function randomNum(m, n) {
@@ -48,24 +46,22 @@ function fire(particleRatio, opts) {
 }
 
 function shoot() {
-    fire(0.1, {
+    fire(0.3, {
         spread: 140,
         startVelocity: 25,
         decay: 0.92,
     });
-    fire(0.35, {
+    fire(0.25, {
         spread: 100,
-        scalar: scalar / 2,
-        shapes: ["circle", "square"],
+        scalar: 1.4,
     });
     fire(0.1, {
         spread: 120,
-        scalar: 0.7,
+        scalar: 4,
     });
     fire(0.2, {
         spread: 60,
         startVelocity: 50,
-        scalar: 0.9,
     });
     fire(0.25, {
         spread: 120,
@@ -74,7 +70,7 @@ function shoot() {
 }
 
 function open(obj, popup) {
-    setTimeout(shoot, 160);
+    setTimeout(shoot, 100);
     obj.addClass("open").removeClass("close");
     popup.addClass("active");
 }
