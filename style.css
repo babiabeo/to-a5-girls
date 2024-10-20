@@ -101,6 +101,16 @@ body {
     right: 50%;
 }
 
+.shadow {
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 200px;
+    z-index: -1;
+}
+
 .letter {
     position: relative;
     background-color: var(--bg-letter);
@@ -247,7 +257,6 @@ body {
 
 #popup .message {
     font-family: "Playwrite GB S", cursive;
-    font-style: italic;
 }
 
 #popup .message .special-t {
@@ -273,7 +282,7 @@ body {
 }
 
 #popup .photo .girls {
-    width: 90%;
+    width: 95%;
 }
 
 #popup.active .overlay {
@@ -359,6 +368,11 @@ body {
     .mid-heart::after {
         width: 10px;
         height: 10px;
+    }
+
+    .shadow {
+        top: 150px;
+        height: 20px;
     }
 
     .open .letter {
