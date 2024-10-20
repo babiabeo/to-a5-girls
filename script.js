@@ -1,26 +1,14 @@
 $(function () {
+    const music = new Audio("./music/lobby.mp3");
     const envelope = $("#envelope");
     const popup = $("#popup");
     const effectText = $(".effect-text");
     const closeBtn = $(".close-btn");
-    let isOpen = false;
+    const muteBtn = $(".mute-btn");
 
-    envelope
-        .on("click", function () {
-            if (!isOpen) {
-                open(envelope, popup);
-                isOpen = true;
-            }
-        });
-
-    closeBtn.on("click", function () {
-        if (isOpen) {
-            close(envelope, popup);
-            isOpen = false;
-        }
-    });
-
-    heartAnimation(effectText);
+    handleEnvelope(envelope, closeBtn, popup);
+    handleHeartAnimation(effectText);
+    handleAudio(muteBtn, music);
 });
 
 const heart = confetti.shapeFromPath({
@@ -40,7 +28,7 @@ const config = {
     shapes: [heart],
     colors: ["#d90429", "#f233a9", "#f23335"],
     startVelocity: 50,
-    disableForReducedMotion: true,
+    // disableForReducedMotion: true,
     scalar: 2,
 };
 
@@ -59,24 +47,44 @@ function fire(particleRatio, opts) {
 }
 
 function shoot() {
-    fire(0.1, {
+    fire(0.2, {
         spread: 140,
         startVelocity: 25,
         decay: 0.92,
         scalar: 1.5,
     });
-    fire(0.35, {
+    fire(0.25, {
         spread: 100,
         shapes: ["circle", "square"],
+        scalar: 0.85,
     });
     fire(0.25, {
         spread: 60,
         startVelocity: 50,
-        scalar: 0.9,
+        scalar: 1.2,
     });
     fire(0.25, {
         spread: 120,
         startVelocity: 55,
+    });
+}
+
+function handleEnvelope(envelope, closeBtn, popup) {
+    let isOpen = false;
+
+    envelope
+        .on("click", function () {
+            if (!isOpen) {
+                open(envelope, popup);
+                isOpen = true;
+            }
+        });
+
+    closeBtn.on("click", function () {
+        if (isOpen) {
+            close(envelope, popup);
+            isOpen = false;
+        }
     });
 }
 
@@ -91,7 +99,7 @@ function close(obj, popup) {
     popup.removeClass("active");
 }
 
-function heartAnimation(text) {
+function handleHeartAnimation(text) {
     const heartCount = (text.width() / 50) * 4;
     for (let i = 0; i < heartCount; i++) {
         const heartSize = randomNum(50, 100) / 10;
@@ -103,4 +111,19 @@ function heartAnimation(text) {
                 's"></span>',
         );
     }
+}
+
+function handleAudio(btn, audio) {
+    // let isMuted = false;
+    audio.loop = true;
+
+    $(window).one("click touchstart", async function () {
+        await audio.play();
+    });
+
+    // btn.on("click", function () {
+    //     audio.volume = +isMuted;
+    //     isMuted = !isMuted;
+    //     btn.text(isMuted ? "🔈" : "🔊");
+    // });
 }

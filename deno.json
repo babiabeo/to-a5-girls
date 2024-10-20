@@ -2,6 +2,20 @@
   "deploy": {
     "project": "01819172-ae7b-45dd-a2d6-3d4dcf7fb1fa",
     "exclude": [
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
+      "**/node_modules",
       "**/node_modules"
     ],
     "include": [],

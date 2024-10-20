@@ -32,6 +32,27 @@ body {
     gap: 0;
 }
 
+.mute-btn {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 44px;
+    height: 44px;
+    top: 30px;
+    right: 30px;
+    font-size: 25px;
+    border-radius: 8px;
+    border: 0;
+    padding: 5px 5px 5px 5px;
+    background-color: var(--envelope-pink-1);
+}
+
+.mute-btn:hover {
+    background-color: var(--envelope-pink-2);
+}
+
 #envelope {
     cursor: pointer;
     position: relative;
@@ -340,6 +361,12 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+    .mute-btn {
+        font-size: 20px;
+        width: 38px;
+        height: 38px;
+    }
+
     #envelope {
         width: 210px;
         height: 135px;
