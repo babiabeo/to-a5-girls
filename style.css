@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+GB+S:ital@0;1&display=swap");
 
 :root {
     --envelope-pink-1: #ec4899;
@@ -13,14 +12,12 @@
     --bg-heart: red;
 }
 
-* {
+body {
+    background-color: var(--bg-primary);
     margin: 0;
     padding: 0;
     text-decoration: none;
-}
 
-body {
-    background-color: var(--bg-primary);
 }
 
 .container {
@@ -30,27 +27,6 @@ body {
     width: 100vw;
     min-height: 100vh;
     gap: 0;
-}
-
-.mute-btn {
-    display: flex;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 44px;
-    height: 44px;
-    top: 30px;
-    right: 30px;
-    font-size: 25px;
-    border-radius: 8px;
-    border: 0;
-    padding: 5px 5px 5px 5px;
-    background-color: var(--envelope-pink-1);
-}
-
-.mute-btn:hover {
-    background-color: var(--envelope-pink-2);
 }
 
 #envelope {
@@ -297,13 +273,13 @@ body {
 #popup .photo {
     display: flex;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 10px;
     align-items: center;
     justify-content: center;
 }
 
 #popup .photo .girls {
-    width: 95%;
+    width: 700px;
 }
 
 #popup.active .overlay {
@@ -360,13 +336,27 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
-    .mute-btn {
-        font-size: 20px;
-        width: 38px;
-        height: 38px;
+@media screen and (max-width: 828px) {
+    #popup .photo .girls {
+        width: 600px;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    #popup .photo .girls {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #popup .photo .girls {
+        width: 450px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
     #envelope {
         width: 210px;
         height: 135px;
@@ -411,6 +401,10 @@ body {
         border-radius: 6px;
     }
 
+    #popup .photo .girls {
+        width: 400px;
+    }
+
     #popup .message .close-btn {
         width: 25px;
         height: 25px;
@@ -425,3 +419,17 @@ body {
         font-size: 1.15em;
     }
 }
+
+
+@media screen and (max-width: 486px) {
+    #popup .photo .girls {
+        width: 375px;
+    }
+}
+
+@media screen and (max-width: 444px) {
+    #popup .photo .girls {
+        width: 275px;
+    }
+}
+

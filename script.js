@@ -4,11 +4,10 @@ $(function () {
     const popup = $("#popup");
     const effectText = $(".effect-text");
     const closeBtn = $(".close-btn");
-    const muteBtn = $(".mute-btn");
 
     handleEnvelope(envelope, closeBtn, popup);
     handleHeartAnimation(effectText);
-    handleAudio(muteBtn, music);
+    handleAudio(music);
 });
 
 const heart = confetti.shapeFromPath({
@@ -28,7 +27,6 @@ const config = {
     shapes: [heart],
     colors: ["#d90429", "#f233a9", "#f23335"],
     startVelocity: 50,
-    // disableForReducedMotion: true,
     scalar: 2,
 };
 
@@ -113,17 +111,10 @@ function handleHeartAnimation(text) {
     }
 }
 
-function handleAudio(btn, audio) {
-    // let isMuted = false;
+function handleAudio(audio) {
     audio.loop = true;
 
     $(window).one("click touchstart", async function () {
         await audio.play();
     });
-
-    // btn.on("click", function () {
-    //     audio.volume = +isMuted;
-    //     isMuted = !isMuted;
-    //     btn.text(isMuted ? "🔈" : "🔊");
-    // });
 }
